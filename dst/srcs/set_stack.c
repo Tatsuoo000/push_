@@ -1,0 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_stack.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/08 18:09:32 by tkano             #+#    #+#             */
+/*   Updated: 2021/07/08 20:35:52 by tkano            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pushswap.h"
+
+int	init_stack(s_stack **v)
+{
+	*v = malloc(sizeof(s_stack));
+	if (!v)
+		return (ERROR);
+	(*v)->value = 0;
+	(*v)->prev = *v;
+	(*v)->next = *v;
+	printf("v->next: %p\n", *v);
+	printf("v->next: %p\n", (*v)->next);
+	return (SUCCESS);
+}
+
+int	set_stack(s_stack **a, s_stack **b, int argc, char **argv)
+{
+	int	i;
+
+	if (init_stack(a) == ERROR)
+		return (ERROR);
+	if (init_stack(b) == ERROR)
+		return (ERROR);
+	i = 1;
+	printf("v->next: %p\n", *a);
+	printf("v->next: %d\n", (*a)->value);
+	while(i < argc)
+	{
+		if (ft_isdigit(argv[i][0]) == False)
+			return (ERROR);
+		if (add_stack(a, ft_atoi(argv[i])) == ERROR)
+			return (ERROR);
+		i++;
+	}
+	printf("v->next: %p\n", *a);
+	return (SUCCESS);
+}

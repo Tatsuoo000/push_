@@ -1,5 +1,8 @@
 SRCDIR	= ./srcs/
-SRCNAME	= main.c
+SRCNAME	= 	main.c\
+			add_stack.c\
+			error.c\
+			set_stack.c
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)
 INCLUDE	= -I./includes
@@ -30,5 +33,9 @@ fclean	:	clean
 			make fclean -C $(LIBDIR)
 
 re		:	fclean all
+
+sani	:	$(OBJS)
+		$(MAKE) -C ./libft
+		$(CC) $(CFLAGS) -fsanitize=address $(OBJS) $(LIBDIR)$(LIBFT) -o $(NAME)
 
 .PHONY	:	all clean fclean re $(LIBFT)
