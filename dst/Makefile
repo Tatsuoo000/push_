@@ -2,7 +2,8 @@ SRCDIR	= ./srcs/
 SRCNAME	= 	main.c\
 			add_stack.c\
 			error.c\
-			set_stack.c
+			set_stack.c\
+			put_stack.c
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)
 INCLUDE	= -I./includes

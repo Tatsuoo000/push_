@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   put_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 17:49:16 by tkano             #+#    #+#             */
-/*   Updated: 2021/07/08 17:49:16 by tkano            ###   ########.fr       */
+/*   Created: 2021/07/09 13:56:16 by tkano             #+#    #+#             */
+/*   Updated: 2021/07/09 13:56:16 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main(int argc, char **argv)
+void	put_stack(s_stack *v)
 {
-	s_stack	*a;
-	s_stack	*b;
-	//s_stack	*sentinel_a;
-	//s_stack	*sentinel_b;
-
-	a = NULL;
-	b = NULL;
-	if (set_stack(&a, &b, argc, argv) == ERROR)
-		return (put_error());
-	//sentinel_a = get_sentinetal(a);
-	write(1, "push_swap\n", 10);
-	printf("v->main: %d\n", a->next->next->value);
-	put_stack(a);
-	printf("1st: %d", a->value);
-	return (0);
+	while (v->prev->value != 0)
+	{
+		v = v->next;
+	}
+	while(v->value != 0)
+	{
+		ft_putnbr_fd(v->value, 1);
+		write(1, "\n", 1);
+		v = v->next;
+	}
 }
