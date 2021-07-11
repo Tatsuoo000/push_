@@ -32,5 +32,6 @@ typedef struct	t_stack	{
 int		put_error(void);
 int		add_stack(s_stack **v, int num);
 int		set_stack(s_stack **a, s_stack **b, int argc, char **argv);
+void	put_stack(s_stack *v);
 
 #endif
