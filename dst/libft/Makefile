@@ -5,6 +5,7 @@ SRCNAME	=	ft_strlen.c \
 			ft_strchr.c \
 			ft_strrchr.c \
 			ft_strnstr.c \
+			ft_strcmp.c \
 			ft_strncmp.c \
 			ft_memset.c \
 			ft_bzero.c \

@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 14:10:54 by tkano             #+#    #+#             */
-/*   Updated: 2021/05/10 02:51:19 by tkano            ###   ########.fr       */
+/*   Updated: 2021/07/10 13:40:38 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 char			*ft_ulltoa(unsigned long long n);
+int				ft_strcmp(const char *s1, const char *s2);
 
 #endif

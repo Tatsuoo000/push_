@@ -1,8 +1,10 @@
 SRCDIR	= ./srcs/
 SRCNAME	= 	main.c\
 			add_stack.c\
+			clear_stack.c\
 			error.c\
 			set_stack.c\
+			finish_program.c\
 			put_stack.c
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)

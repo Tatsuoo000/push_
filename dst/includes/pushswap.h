@@ -33,5 +33,7 @@ int		put_error(void);
 int		add_stack(s_stack **v, int num);
 int		set_stack(s_stack **a, s_stack **b, int argc, char **argv);
 void	put_stack(s_stack *v);
+void	clear_stack(s_stack **v);
+int		finish_program(int flag, s_stack **a, s_stack **b);
 
 #endif
