@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_stack.c                                      :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 17:28:32 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/02 18:57:56 by tkano            ###   ########.fr       */
+/*   Created: 2021/08/02 19:08:02 by tkano             #+#    #+#             */
+/*   Updated: 2021/08/02 19:38:39 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	clear_stack(s_stack **v)
+int	do_ra(s_stack **a)
 {
-	s_stack	*tmp;
+	int	tmp;
 
-	while ((*v)->prev->value != 0)
+	while ((*a)->prev->value != 0)
 	{
-		*v = (*v)->next;
+		*a = (*a)->next;
 	}
-	//printf("1st: %d\n", (*v)->value);
-	while ((*v)->value != 0)
-	{
-		tmp = (*v)->next;
-		*v = NULL;
-		free(*v);
-		*v = tmp;
-		//printf("clear: %p\n", *v);
-	}
-	*v = NULL;
-	free(*v);
+	tmp = (*a)->value;
+	(*a)->value = (*a)->next->value;
+	(*a)->next->value = tmp;
+	return (SUCCESS);
 }

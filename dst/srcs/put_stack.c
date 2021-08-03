@@ -14,6 +14,7 @@
 
 void	put_stack(s_stack *v)
 {
+	printf("=======stack=====\n");
 	while (v->prev->value != 0)
 	{
 		v = v->next;

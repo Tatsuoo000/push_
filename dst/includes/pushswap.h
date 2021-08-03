@@ -35,5 +35,7 @@ int		set_stack(s_stack **a, s_stack **b, int argc, char **argv);
 void	put_stack(s_stack *v);
 void	clear_stack(s_stack **v);
 int		finish_program(int flag, s_stack **a, s_stack **b);
+int		do_ra(s_stack **a);
+int		do_pb(s_stack **a, s_stack **b);
 
 #endif
