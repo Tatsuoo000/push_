@@ -22,11 +22,18 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (set_stack(&a, &b, argc, argv) == ERROR)
-		return (put_error());
+		return (finish_program(ERROR, &a, &b));
 	//sentinel_a = get_sentinetal(a);
 	write(1, "push_swap\n", 10);
-	printf("v->main: %d\n", a->next->next->value);
+	//printf("v->main: %d\n", a->next->next->value);
 	put_stack(a);
-	printf("1st: %d", a->value);
-	return (0);
+	do_ra(&a);
+	do_pb(&a, &b);
+	do_pb(&a, &b);
+	do_pb(&a, &b);
+	do_pb(&a, &b);
+	put_stack(a);
+	put_stack(b);
+	//printf("1st: %d", a->value);
+	return (finish_program(SUCCESS, &a, &b));
 }
