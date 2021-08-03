@@ -27,11 +27,15 @@ int	main(int argc, char **argv)
 	write(1, "push_swap\n", 10);
 	//printf("v->main: %d\n", a->next->next->value);
 	put_stack(a);
-	do_ra(&a);
+	do_sa(&a);
 	do_pb(&a, &b);
 	do_pb(&a, &b);
 	do_pb(&a, &b);
 	do_pb(&a, &b);
+	do_rra(&a);
+	do_rra(&a);
+	do_pb(&a, &b);
+	//do_pb(&a, &b);
 	put_stack(a);
 	put_stack(b);
 	//printf("1st: %d", a->value);
