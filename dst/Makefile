@@ -5,6 +5,8 @@ SRCNAME	= 	main.c\
 			error.c\
 			pb.c\
 			ra.c\
+			rra.c\
+			sa.c\
 			set_stack.c\
 			finish_program.c\
 			put_stack.c
