@@ -3,11 +3,18 @@ SRCNAME	= 	main.c\
 			add_stack.c\
 			clear_stack.c\
 			error.c\
+			pa.c\
 			pb.c\
 			ra.c\
+			rb.c\
+			rr.c\
 			rra.c\
+			rrb.c\
+			rrr.c\
 			sa.c\
+			sb.c\
 			set_stack.c\
+			ss.c\
 			finish_program.c\
 			put_stack.c
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
