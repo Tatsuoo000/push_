@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 18:09:32 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/02 18:56:16 by tkano            ###   ########.fr       */
+/*   Updated: 2021/08/05 11:19:35 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	set_stack(s_stack **a, s_stack **b, int argc, char **argv)
 		return (ERROR);
 	i = 1;
 	//printf("v_sentinental: %p\n", *a);
-	while(i < argc)
+	while (i < argc)
 	{
 		if (ft_isdigit(argv[i][0]) == False)
 			return (ERROR);

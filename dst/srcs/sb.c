@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_stack.c                                        :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 19:01:56 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/05 09:09:04 by tkano            ###   ########.fr       */
+/*   Created: 2021/08/02 19:08:02 by tkano             #+#    #+#             */
+/*   Updated: 2021/08/04 08:50:12 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	add_stack(s_stack **v, int num)
+void	do_sb(s_stack **b)
 {
-	s_stack	*new;
+	int	tmp;
 
-	new = malloc(sizeof(s_stack));
-	if (!new)
-		return (ERROR);
-	new->value = num;
-	while ((*v)->next->value != 0)
+	while ((*b)->prev->value != 0)
 	{
-		*v = (*v)->next;
+		*b = (*b)->next;
 	}
-	new->prev = *v;
-	(*v)->next = new;
-	while ((*v)->value != 0)
-	{
-		*v = (*v)->prev;
-	}
-	(*v)->prev = new;
-	new->next = *v;
-	return (SUCCESS);
+	tmp = (*b)->value;
+	(*b)->value = (*b)->next->value;
+	(*b)->next->value = tmp;
 }

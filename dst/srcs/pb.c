@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 19:46:27 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/03 11:21:18 by tkano            ###   ########.fr       */
+/*   Updated: 2021/08/05 10:57:36 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	pop(s_stack **v)
 	//printf("clear: %p\n", (*v)->prev);
 	//printf("prev: %p, value: %d\n", (*v)->next->prev, (*v)->next->prev->value);
 	(*v)->next->prev = (*v)->prev;
-	*v = NULL;
 	free(*v);
+	*v = NULL;
 	*v = tmp;
 	return (ret);
 }

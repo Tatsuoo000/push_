@@ -6,13 +6,13 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 19:08:02 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/03 11:44:03 by tkano            ###   ########.fr       */
+/*   Updated: 2021/08/04 08:50:28 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	do_sa(s_stack **a)
+void	do_sa(s_stack **a)
 {
 	int	tmp;
 
@@ -23,5 +23,4 @@ int	do_sa(s_stack **a)
 	tmp = (*a)->value;
 	(*a)->value = (*a)->next->value;
 	(*a)->next->value = tmp;
-	return (SUCCESS);
 }
