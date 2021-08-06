@@ -22,6 +22,7 @@
 # define False 0
 # define SUCCESS 0
 # define ERROR 1
+# define DUMMY 2147483648
 
 typedef struct	t_stack	{
 	struct t_stack	*prev;
@@ -48,5 +49,6 @@ void	do_rb(s_stack **b);
 void	do_rr(s_stack **a, s_stack **b);
 void	do_rrb(s_stack **b);
 void	do_rrr(s_stack **a, s_stack **b);
+int		error_check(int argc, char **argv);
 
 #endif

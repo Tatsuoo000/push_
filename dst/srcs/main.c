@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
+	if (error_check(argc, argv) == ERROR)
+		return (put_error());
 	if (set_stack(&a, &b, argc, argv) == ERROR)
 		return (finish_program(ERROR, &a, &b));
 	//sentinel_a = get_sentinetal(a);
