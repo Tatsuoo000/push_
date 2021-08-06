@@ -3,6 +3,7 @@ SRCNAME	= 	main.c\
 			add_stack.c\
 			clear_stack.c\
 			error.c\
+			error_check.c\
 			pa.c\
 			pb.c\
 			ra.c\
