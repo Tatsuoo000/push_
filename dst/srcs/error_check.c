@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:57:13 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/06 23:28:18 by tkano            ###   ########.fr       */
+/*   Updated: 2021/08/08 10:53:24 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	ft_isnum(char *argv)
 	s = ft_strlen(argv);
 	if (ft_isdigit(argv[0]) == False && argv[0] != '-')
 		return (ERROR);
+	if (argv[0] == '-' && ft_isdigit(argv[1]) == False)
+		return(ERROR);
 	i = 1;
 	while (i < s)
 	{
