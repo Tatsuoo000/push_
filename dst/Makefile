@@ -15,6 +15,8 @@ SRCNAME	= 	main.c\
 			sa.c\
 			sb.c\
 			set_stack.c\
+			sort_2.c\
+			sort_3.c\
 			ss.c\
 			finish_program.c\
 			put_stack.c

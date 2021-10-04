@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   sort_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 11:45:11 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/04 15:12:08 by tkano            ###   ########.fr       */
+/*   Created: 2021/10/04 12:28:18 by tkano             #+#    #+#             */
+/*   Updated: 2021/10/04 14:58:19 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	do_ra(s_stack **a)
+void	sort_2(s_stack **a)
 {
-	int	tmp;
-
-	while ((*a)->prev->value != 0)
+	if ((*a)->next->value > (*a)->next->next->value)
 	{
-		*a = (*a)->next;
+		do_sa(a);
+		ft_put_sa();
 	}
-	tmp = (*a)->value;
-	(*a)->value = 0;
-	(*a)->prev->value = tmp;
-}
-
-void	ft_put_ra(void)
-{
-	write(1, "ra\n", 3);
 }
