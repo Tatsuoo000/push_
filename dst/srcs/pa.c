@@ -23,3 +23,8 @@ int	do_pa(s_stack **a, s_stack **b)
 		return (ERROR);
 	return (SUCCESS);
 }
+
+void	ft_put_pa(void)
+{
+	write(1, "pa\n", 3);
+}

@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 19:46:27 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/05 10:57:36 by tkano            ###   ########.fr       */
+/*   Updated: 2021/10/04 20:22:46 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,9 @@ int	do_pb(s_stack **a, s_stack **b)
 	if (push(b, tmp) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
+}
+
+void	ft_put_pb(void)
+{
+	write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:42:36 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/04 15:10:44 by tkano            ###   ########.fr       */
+/*   Updated: 2021/10/04 23:10:12 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ void	sort_3(s_stack **a)
 	int	second;
 	int	third;
 
+	while((*a)->value != DUMMY)
+	{
+		*a = (*a)->next;
+	}
 	first = (*a)->next->value;
 	second = (*a)->next->next->value;
 	third = (*a)->next->next->next->value;
-
 	if (first > second && first < third)
 	{
 		do_sa(a);
