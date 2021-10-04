@@ -29,26 +29,12 @@ int	main(int argc, char **argv)
 	write(1, "push_swap\n", 10);
 	//printf("v->main: %d\n", a->next->next->value);
 	put_stack(a);
-	do_sa(&a);
-	do_pb(&a, &b);
-	do_pb(&a, &b);
-	do_pb(&a, &b);
-	do_pb(&a, &b);
-	do_rra(&a);
-	do_rra(&a);
-	do_pb(&a, &b);
-	do_pb(&a, &b);
-	do_sb(&b);
-	do_ss(&a, &b);
-	do_pa(&a, &b);
-	do_pa(&a, &b);
-	do_rb(&b);
-	do_rb(&b);
-	do_rr(&a, &b);
-	do_rrb(&b);
-	do_rrr(&a, &b);
-	do_pb(&a, &b);
-	do_pa(&a, &b);
+	if (argc == 1 || argc == 2)
+		return (finish_program(SUCCESS, &a, &b));
+	else if (argc == 3)
+		(sort_2(&a));
+	else if (argc == 4)
+		sort_3(&a);
 	put_stack(a);
 	put_stack(b);
 	//printf("1st: %d", a->value);
