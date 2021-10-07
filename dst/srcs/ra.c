@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 11:45:11 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/04 15:12:08 by tkano            ###   ########.fr       */
+/*   Updated: 2021/10/06 20:00:44 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	do_ra(s_stack **a)
 {
-	int	tmp;
+	long	tmp;
 
-	while ((*a)->prev->value != 0)
+	while ((*a)->prev->value != DUMMY)
 	{
 		*a = (*a)->next;
 	}
 	tmp = (*a)->value;
-	(*a)->value = 0;
+	(*a)->value = DUMMY;
 	(*a)->prev->value = tmp;
 }
 

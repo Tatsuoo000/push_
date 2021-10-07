@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacklen.c                                         :+:      :+:    :+:   */
+/*   sort_100.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 18:51:28 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/06 21:16:50 by tkano            ###   ########.fr       */
+/*   Created: 2021/10/05 21:22:20 by tkano             #+#    #+#             */
+/*   Updated: 2021/10/05 22:29:27 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	stacklen(s_stack *v)
+int		sort_100(s_stack **a, s_stack **b)
 {
-	int	len;
+	long	median;
 
-	len = 0;
-	//printf("check1\n");
-	while (v->prev->value != DUMMY)
-	{
-		v = v->next;
-	}
-	while(v->value != DUMMY)
-	{
-		len++;
-		v = v->next;
-	}
-	//printf("check2, len: %d\n", len);
-	return (len);
+	median = stackmedian(a);
+	put_stack(*b);
+	return (SUCCESS);
+
 }

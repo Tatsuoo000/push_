@@ -14,13 +14,13 @@
 
 void	do_rrb(s_stack **b)
 {
-	int	tmp;
+	long	tmp;
 
-	while ((*b)->next->value != 0)
+	while ((*b)->next->value != DUMMY)
 	{
 		*b = (*b)->next;
 	}
 	tmp = (*b)->value;
-	(*b)->value = 0;
+	(*b)->value = DUMMY;
 	(*b)->next->value = tmp;
 }

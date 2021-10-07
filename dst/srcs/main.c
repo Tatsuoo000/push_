@@ -37,6 +37,8 @@ int	main(int argc, char **argv)
 		sort_3(&a);
 	else if (argc <= 7)
 		sort_6(&a, &b);
+	else if (argc <= 101)
+		sort_100(&a, &b);
 	put_stack(a);
 	put_stack(b);
 	//printf("1st: %d", a->value);

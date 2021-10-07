@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 18:09:32 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/06 22:35:41 by tkano            ###   ########.fr       */
+/*   Updated: 2021/10/05 22:31:17 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	init_stack(s_stack **v)
 	*v = malloc(sizeof(s_stack));
 	if (!v)
 		return (ERROR);
-	(*v)->value = 0;
+	(*v)->value = DUMMY;
 	(*v)->prev = *v;
 	(*v)->next = *v;
 	return (SUCCESS);

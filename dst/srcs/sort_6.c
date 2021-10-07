@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 18:39:36 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/04 23:10:39 by tkano            ###   ########.fr       */
+/*   Updated: 2021/10/06 21:16:11 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		sort_6(s_stack **a, s_stack **b)
 {
-	long	len;
+	int		len;
 	int		loc;
 	long	min;
 
@@ -29,14 +29,16 @@ int		sort_6(s_stack **a, s_stack **b)
 			{
 				do_ra(a);
 				ft_put_ra();
-				printf("num: %ld, loc: %d, start: %d\n", min, loc, (*a)->value);
 			}
 			else
 			{
 				do_rra(a);
 				ft_put_rra();
 			}
+			loc++;
+			//printf("num: %ld, loc: %d, start: %ld\n", min, loc, (*a)->value);
 		}
+		//printf("check5\n");
 		do_pb(a, b);
 		ft_put_pb();
 		len--;

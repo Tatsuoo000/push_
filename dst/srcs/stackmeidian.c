@@ -1,32 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacklen.c                                         :+:      :+:    :+:   */
+/*   stackmeidian.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 18:51:28 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/06 21:16:50 by tkano            ###   ########.fr       */
+/*   Created: 2021/10/05 21:33:05 by tkano             #+#    #+#             */
+/*   Updated: 2021/10/07 18:22:34 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	stacklen(s_stack *v)
+long	median_rec(s_stack *v, long min)
 {
-	int	len;
+	long	ret;
+	int		i;
 
-	len = 0;
-	//printf("check1\n");
+	i = 1;
 	while (v->prev->value != DUMMY)
 	{
 		v = v->next;
 	}
+	ret = __INT_MAX__;
 	while(v->value != DUMMY)
 	{
-		len++;
+		if (min < v->value && ret > v->value)
+		{
+			ret = v->value;
+			//printf("median: %ld\n", ret);
+		}
 		v = v->next;
 	}
-	//printf("check2, len: %d\n", len);
-	return (len);
+	return (ret);
+}
+
+long	stackmedian(s_stack **v)
+{
+	long	ret;
+	int		len;
+	int		i;
+	int		loc;
+
+	len = stacklen(*v);
+	i = 0;
+	loc = 0;
+	ret = stackmin(v, &loc, len);
+	while (i < len / 2)
+	{
+		ret = median_rec(*v, ret);
+		i++;
+	}
+	//printf("median: %ld\n", ret);
+	return (ret);
 }

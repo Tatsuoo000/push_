@@ -14,7 +14,7 @@
 
 int	do_pa(s_stack **a, s_stack **b)
 {
-	int	tmp;
+	long	tmp;
 
 	//printf("pb: %p, value: %d\n", *a, (*a)->value);
 	tmp = pop(b);
