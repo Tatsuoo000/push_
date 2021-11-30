@@ -17,7 +17,12 @@ SRCNAME	= 	main.c\
 			set_stack.c\
 			sort_2.c\
 			sort_3.c\
+			sort_6.c\
+			sort_100.c\
 			ss.c\
+			stacklen.c\
+			stackmeidian.c\
+			stackmin.c\
 			finish_program.c\
 			put_stack.c
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))

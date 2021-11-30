@@ -15,11 +15,11 @@
 void	put_stack(s_stack *v)
 {
 	printf("=======stack=====\n");
-	while (v->prev->value != 0)
+	while (v->prev->value != DUMMY)
 	{
 		v = v->next;
 	}
-	while(v->value != 0)
+	while(v->value != DUMMY)
 	{
 		ft_putnbr_fd(v->value, 1);
 		write(1, "\n", 1);

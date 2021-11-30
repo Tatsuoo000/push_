@@ -6,18 +6,18 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 19:46:27 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/05 10:57:36 by tkano            ###   ########.fr       */
+/*   Updated: 2021/10/06 21:13:37 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	pop(s_stack **v)
+long	pop(s_stack **v)
 {
-	int		ret;
+	long	ret;
 	s_stack	*tmp;
 
-	while ((*v)->prev->value != 0)
+	while ((*v)->prev->value != DUMMY)
 	{
 		*v = (*v)->next;
 	}
@@ -35,7 +35,7 @@ int	pop(s_stack **v)
 	return (ret);
 }
 
-int	push(s_stack **v, int num)
+int	push(s_stack **v, long num)
 {
 	s_stack	*new;
 
@@ -43,7 +43,7 @@ int	push(s_stack **v, int num)
 	if (!new)
 		return (ERROR);
 	new->value = num;
-	while ((*v)->prev->value != 0)
+	while ((*v)->prev->value != DUMMY)
 	{
 		*v = (*v)->next;
 	}
@@ -56,12 +56,17 @@ int	push(s_stack **v, int num)
 
 int	do_pb(s_stack **a, s_stack **b)
 {
-	int	tmp;
+	long	tmp;
 
-	//printf("pb: %p, value: %d\n", *a, (*a)->value);
+	//printf("pb: %p, value: %ld\n", *a, (*a)->value);
 	tmp = pop(a);
-	//printf("pb: %p, value: %d\n", *a, (*a)->value);
+	//printf("pb: %p, value: %ld\n", *a, (*a)->value);
 	if (push(b, tmp) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
+}
+
+void	ft_put_pb(void)
+{
+	write(1, "pb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 17:28:32 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/05 11:08:01 by tkano            ###   ########.fr       */
+/*   Updated: 2021/10/05 22:31:03 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	clear_stack(s_stack **v)
 {
 	s_stack	*tmp;
 
-	while ((*v)->prev->value != 0)
+	while ((*v)->prev->value != DUMMY)
 	{
 		*v = (*v)->next;
 	}
 	//printf("1st: %d\n", (*v)->value);
-	while ((*v)->value != 0)
+	while ((*v)->value != DUMMY)
 	{
 		tmp = *v;
 		(*v) = (*v)->next;

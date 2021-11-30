@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_stack.c                                        :+:      :+:    :+:   */
+/*   stacklen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 19:01:56 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/05 22:31:05 by tkano            ###   ########.fr       */
+/*   Created: 2021/10/04 18:51:28 by tkano             #+#    #+#             */
+/*   Updated: 2021/10/06 21:16:50 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	add_stack(s_stack **v, int num)
+int	stacklen(s_stack *v)
 {
-	s_stack	*new;
+	int	len;
 
-	new = malloc(sizeof(s_stack));
-	if (!new)
-		return (ERROR);
-	new->value = num;
-	while ((*v)->next->value != DUMMY)
+	len = 0;
+	//printf("check1\n");
+	while (v->prev->value != DUMMY)
 	{
-		*v = (*v)->next;
+		v = v->next;
 	}
-	new->prev = *v;
-	(*v)->next = new;
-	while ((*v)->value != DUMMY)
+	while(v->value != DUMMY)
 	{
-		*v = (*v)->prev;
+		len++;
+		v = v->next;
 	}
-	(*v)->prev = new;
-	new->next = *v;
-	return (SUCCESS);
+	//printf("check2, len: %d\n", len);
+	return (len);
 }
