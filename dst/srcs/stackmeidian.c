@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 21:33:05 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/07 18:22:34 by tkano            ###   ########.fr       */
+/*   Updated: 2021/10/07 18:28:08 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ long	stackmedian(s_stack **v)
 	{
 		ret = median_rec(*v, ret);
 		i++;
+	}
+	while ((*v)->prev->value != DUMMY)
+	{
+		(*v) = (*v)->next;
 	}
 	//printf("median: %ld\n", ret);
 	return (ret);
