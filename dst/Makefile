@@ -24,7 +24,8 @@ SRCNAME	= 	main.c\
 			stackmeidian.c\
 			stackmin.c\
 			finish_program.c\
-			put_stack.c
+			put_stack.c\
+			info_init.c
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)
 INCLUDE	= -I./includes

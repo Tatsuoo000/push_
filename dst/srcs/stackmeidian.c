@@ -15,9 +15,9 @@
 long	median_rec(s_stack *v, long min)
 {
 	long	ret;
-	int		i;
+	//int		i;
 
-	i = 1;
+	//i = 1;
 	while (v->prev->value != DUMMY)
 	{
 		v = v->next;

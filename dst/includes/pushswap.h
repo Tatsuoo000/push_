@@ -22,6 +22,7 @@
 # define False 0
 # define SUCCESS 0
 # define ERROR 1
+# define STDERR 2
 # define DUMMY -2147483649
 
 typedef struct	t_stack	{
@@ -30,12 +31,20 @@ typedef struct	t_stack	{
 	struct t_stack	*next;
 }				s_stack;
 
+typedef struct  t_info {
+    s_stack         *ans;
+    long            size;
+    long            awant;
+    long            bwant;
+    long            median;
+}               s_info;
+
 int		put_error(void);
 int		add_stack(s_stack **v, int num);
 int		set_stack(s_stack **a, s_stack **b, int argc, char **argv);
 void	put_stack(s_stack *v);
 void	clear_stack(s_stack **v);
-int		finish_program(int flag, s_stack **a, s_stack **b);
+int		finish_program(int flag, s_stack **a, s_stack **b, s_info **info);
 void	do_ra(s_stack **a);
 void	ft_put_ra(void);
 void	do_sa(s_stack **a);
@@ -62,5 +71,7 @@ int		sort_100(s_stack **a, s_stack **b);
 int		stacklen(s_stack *v);
 long	stackmin(s_stack **a, int *loc, int len);
 long	stackmedian(s_stack **v);
+int		info_init(s_info **info, int argc);
+int		init_stack(s_stack **v);
 
 #endif
