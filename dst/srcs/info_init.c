@@ -17,8 +17,7 @@ int info_init(s_info **info, int argc)
     *info = malloc(sizeof(s_info));
     if (!info)
         return (ERROR);
-    (*info)->awant = 0;
-    (*info)->bwant = 0;
+    (*info)->min_value = 0;
     if (init_stack(&(*info)->ans) == ERROR)
         return (ERROR);
     (*info)->size = argc - 1;
