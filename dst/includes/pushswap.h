@@ -73,5 +73,6 @@ long	stackmin(s_stack **a, int *loc, int len);
 long	stackmedian(s_stack **v);
 int		info_init(s_info **info, int argc);
 int		init_stack(s_stack **v);
+int		is_sorted(s_stack *v);
 
 #endif

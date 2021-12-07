@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 		return (finish_program(ERROR, &a, &b, &info));
 	if (info_init(&info, argc) == ERROR)
 		return (finish_program(ERROR, &a, &b, &info));
+	if (is_sorted(a))
+		return (finish_program(SUCCESS, &a, &b, &info));
 	//sentinel_a = get_sentinetal(a);
 	write(1, "push_swap\n", 10);
 	//printf("v->main: %d\n", a->next->next->value);
