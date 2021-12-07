@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	else if (argc <= 7)
 		sort_6(&a, &b);
 	else if (argc <= 101)
-		sort_100(&a, &b);
+		sort_100(&a, &b, &info);
 	put_stack(a);
 	put_stack(b);
 	//printf("1st: %d", a->value);

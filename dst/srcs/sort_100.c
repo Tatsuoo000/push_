@@ -12,53 +12,20 @@
 
 #include "pushswap.h"
 
-int		quick_sort_b(s_stack **a, s_stack **b, long median)
+int		quick_sort(s_stack **a, s_stack **b, s_info **info)
 {
-	if (stacklen(*b) < 7)
-	{
-		sort_6(b, a);
-		return (SUCCESS);
-	}
-	median = stackmedian(b);
-	while ((*b)->value != DUMMY)
-	{
-		if ((*b)->value < median)
-		{
-			do_pa(a, b);
-			ft_put_pa();
-		}
-		(*b) = (*b)->next;
-	}
-	quick_sort_b(a, b, median);
-	return (ERROR);
+	int	middle;
+
+	middle = ((*info)->size -1) / 2 + 1;
+	if (first_half_set(a, b, info, middle))
+	 	return (ERROR);
 }
 
-int		quick_sort(s_stack **a, s_stack **b, long median)
+int		sort_100(s_stack **a, s_stack **b, s_info **info)
 {
-	int	i;
-
-	i = 0;
-	while ((*a)->value != DUMMY)
-	{
-		if ((*a)->value <= median)
-		{
-			do_pb(a, b);
-			ft_put_pb();
-		}
-		(*a) = (*a)->next;
-		i++;
-	}
-	quick_sort_b(a, b, median);
-	return (SUCCESS);
-}
-
-int		sort_100(s_stack **a, s_stack **b)
-{
-	long	median;
-
-	median = stackmedian(a);
+	(*info)->median = stackmedian(a);
 	//printf("start: %ld\n", (*a)->value);
-	quick_sort(a, b, median);
+	quick_sort(a, b, info);
 	put_stack(*b);
 	return (SUCCESS);
 

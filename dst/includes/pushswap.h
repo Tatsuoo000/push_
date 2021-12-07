@@ -34,8 +34,7 @@ typedef struct	t_stack	{
 typedef struct  t_info {
     s_stack         *ans;
     long            size;
-    long            awant;
-    long            bwant;
+    long            min_value;
     long            median;
 }               s_info;
 
@@ -67,7 +66,7 @@ int		error_check(int argc, char **argv);
 void	sort_2(s_stack **a);
 void	sort_3(s_stack **a);
 int		sort_6(s_stack **a, s_stack **b);
-int		sort_100(s_stack **a, s_stack **b);
+int		sort_100(s_stack **a, s_stack **b, s_info **info);
 int		stacklen(s_stack *v);
 long	stackmin(s_stack **a, int *loc, int len);
 long	stackmedian(s_stack **v);
