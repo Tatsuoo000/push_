@@ -6,13 +6,13 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 22:58:57 by tkano             #+#    #+#             */
-/*   Updated: 2021/12/07 23:19:33 by tkano            ###   ########.fr       */
+/*   Updated: 2021/12/09 22:36:58 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-int first_half_set(s_stack **a, s_stack **b, s_info **info, int middle)
+/*
+int first_half_set(s_stack **a, s_stack **b, s_info **info)
 {
 	int		i;
 	int		j;
@@ -20,11 +20,14 @@ int first_half_set(s_stack **a, s_stack **b, s_info **info, int middle)
 
 	i = 0;
 	j = 0;
-	while (i < (*info)->size && j < middle)
+	while (i < (*info)->size && j < (*info)->median)
 	{
-		if ((*a)->value >= middle)
+		if ((*a)->value >= (*info)->median)
 		{
-			if (rr_flag, )
+			return (ERROR);
 		}
+		return (SUCCESS);
 	}
+	return (SUCCESS);
 }
+*/

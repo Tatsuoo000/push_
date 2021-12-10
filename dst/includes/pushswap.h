@@ -25,6 +25,20 @@
 # define STDERR 2
 # define DUMMY -2147483649
 
+typedef enum	e_cmd
+{
+	PA,
+	PB,
+	SA,
+	SB,
+	SS,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+}				t_cmd;
 typedef struct	t_stack	{
 	struct t_stack	*prev;
 	long			value;
@@ -63,9 +77,9 @@ void	do_rr(s_stack **a, s_stack **b);
 void	do_rrb(s_stack **b);
 void	do_rrr(s_stack **a, s_stack **b);
 int		error_check(int argc, char **argv);
-void	sort_2(s_stack **a);
-void	sort_3(s_stack **a);
-int		sort_6(s_stack **a, s_stack **b);
+void	sort_2(s_stack **a, s_info **info);
+void	sort_3(s_stack **a, s_info **info);
+int		sort_6(s_stack **a, s_stack **b, s_info **info);
 int		sort_100(s_stack **a, s_stack **b, s_info **info);
 int		stacklen(s_stack *v);
 long	stackmin(s_stack **a, int *loc, int len);
@@ -73,5 +87,18 @@ long	stackmedian(s_stack **v);
 int		info_init(s_info **info, int argc);
 int		init_stack(s_stack **v);
 int		is_sorted(s_stack *v);
+int		ft_isdup(s_stack **a);
+int     first_half_set(s_stack **a, s_stack **b, s_info **info);
+void	int_cpy(int *p, const int *s, size_t n);
+void	replacement_to_index(s_stack *a, int *array);
+int     add_ans_pa(s_stack **a, s_stack **b, s_info **info);
+int 	add_ans_pb(s_stack **a, s_stack **b, s_info **info);
+int 	add_ans_sa(s_stack **a, s_info **info);
+int	    add_ans_sb(s_stack **b, s_info **info);
+int     add_ans_ra(s_stack **a, s_info **info);
+int     add_ans_rb(s_stack **b, s_info **info);
+int 	add_ans_rra(s_stack **a, s_info **info);
+int 	add_ans_rrb(s_stack **b, s_info **info);
+void	put_command(s_stack *cmd);
 
 #endif

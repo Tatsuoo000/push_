@@ -12,11 +12,8 @@
 
 #include "pushswap.h"
 
-void	sort_2(s_stack **a)
+void	sort_2(s_stack **a, s_info **info)
 {
 	if ((*a)->next->value > (*a)->next->next->value)
-	{
-		do_sa(a);
-		ft_put_sa();
-	}
+		add_ans_sa(a, info);
 }

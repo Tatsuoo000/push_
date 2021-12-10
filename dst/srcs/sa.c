@@ -25,7 +25,18 @@ void	do_sa(s_stack **a)
 	(*a)->next->value = tmp;
 }
 
-void	ft_put_sa(void)
+int	add_ans_sa(s_stack **a, s_info **info)
 {
-	write(1, "sa\n", 3);
+	do_sa(a);
+	if (add_stack(&((*info)->ans), SA))
+		return (ERROR);
+	return (SUCCESS);
+}
+
+int	add_ans_sb(s_stack **b, s_info **info)
+{
+	do_sa(b);
+	if (add_stack(&((*info)->ans), SB))
+		return (ERROR);
+	return (SUCCESS);
 }

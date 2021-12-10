@@ -15,5 +15,5 @@
 void	do_ss(s_stack **a, s_stack **b)
 {
 	do_sa(a);
-	do_sb(b);
+	do_sa(b);
 }

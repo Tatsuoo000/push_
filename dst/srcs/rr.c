@@ -15,5 +15,5 @@
 void	do_rr(s_stack **a, s_stack **b)
 {
 	do_ra(a);
-	do_rb(b);
+	do_ra(b);
 }

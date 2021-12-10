@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-int		sort_6(s_stack **a, s_stack **b)
+int		sort_6(s_stack **a, s_stack **b, s_info **info)
 {
 	int		len;
 	int		loc;
@@ -23,32 +23,23 @@ int		sort_6(s_stack **a, s_stack **b)
 	min = stackmin(a, &loc, len);
 	while (len > 3)
 	{
-		while (min != (*a)->next->value)
+		//printf("num: %ld, loc: %d, start: %ld, len: %d\n", min, loc, (*a)->value, len);
+		while (min != (*a)->value)
 		{
 			if (loc < len / 2)
-			{
-				do_ra(a);
-				ft_put_ra();
-			}
+				add_ans_ra(a, info);
 			else
-			{
-				do_rra(a);
-				ft_put_rra();
-			}
+				add_ans_rra(a, info);
 			loc++;
 			//printf("num: %ld, loc: %d, start: %ld\n", min, loc, (*a)->value);
 		}
 		//printf("check5\n");
-		do_pb(a, b);
-		ft_put_pb();
+		add_ans_pb(a, b, info);
 		len--;
 		min = stackmin(a, &loc, len);
 	}
-	sort_3(a);
+	sort_3(a, info);
 	while (stacklen(*b) > 0)
-	{
-		do_pa(a, b);
-		ft_put_pa();
-	}
+		add_ans_pa(a, b, info);
 	return (0);
 }

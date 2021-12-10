@@ -30,22 +30,25 @@ int	main(int argc, char **argv)
 		return (finish_program(ERROR, &a, &b, &info));
 	if (is_sorted(a))
 		return (finish_program(SUCCESS, &a, &b, &info));
+	if (ft_isdup(&a))
+		return (finish_program(SUCCESS, &a, &b, &info));
 	//sentinel_a = get_sentinetal(a);
 	write(1, "push_swap\n", 10);
 	//printf("v->main: %d\n", a->next->next->value);
-	//put_stack(a);
+	put_stack(a);
 	if (argc == 1 || argc == 2)
 		return (finish_program(SUCCESS, &a, &b, &info));
 	else if (argc == 3)
-		(sort_2(&a));
+		(sort_2(&a, &info));
 	else if (argc == 4)
-		sort_3(&a);
+		sort_3(&a, &info);
 	else if (argc <= 7)
-		sort_6(&a, &b);
+		sort_6(&a, &b, &info);
 	else if (argc <= 101)
 		sort_100(&a, &b, &info);
 	put_stack(a);
 	put_stack(b);
+	put_command(info->ans);
 	//printf("1st: %d", a->value);
 	return (finish_program(SUCCESS, &a, &b, &info));
 }

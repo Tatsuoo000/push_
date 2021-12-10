@@ -51,6 +51,7 @@ int	push(s_stack **v, long num)
 	new->next = (*v);
 	(*v)->prev->next = new;
 	(*v)->prev = new;
+	*v = (*v)->prev;
 	return (SUCCESS);
 }
 
@@ -63,10 +64,15 @@ int	do_pb(s_stack **a, s_stack **b)
 	//printf("pb: %p, value: %ld\n", *a, (*a)->value);
 	if (push(b, tmp) == ERROR)
 		return (ERROR);
+	//printf("pb: %p, value: %ld\n", *a, (*a)->value);
 	return (SUCCESS);
 }
 
-void	ft_put_pb(void)
+int	add_ans_pb(s_stack **a, s_stack **b, s_info **info)
 {
-	write(1, "pb\n", 3);
+	if (do_pb(a, b))
+		return (ERROR);
+	if (add_stack(&((*info)->ans), PB))
+		return (ERROR);
+	return (SUCCESS);
 }

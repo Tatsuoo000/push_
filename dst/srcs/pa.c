@@ -24,7 +24,11 @@ int	do_pa(s_stack **a, s_stack **b)
 	return (SUCCESS);
 }
 
-void	ft_put_pa(void)
+int	add_ans_pa(s_stack **a, s_stack **b, s_info **info)
 {
-	write(1, "pa\n", 3);
+	if (do_pa(a, b))
+		return (ERROR);
+	if (add_stack(&((*info)->ans), PA))
+		return (ERROR);
+	return (SUCCESS);
 }
