@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   info_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/10 13:39:01 by tkano             #+#    #+#             */
-/*   Updated: 2021/07/10 13:42:16 by tkano            ###   ########.fr       */
+/*   Created: 2021/12/06 20:14:32 by tkano             #+#    #+#             */
+/*   Updated: 2021/12/06 20:14:32 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pushswap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int info_init(s_info **info, int argc)
 {
-	while (*s1 && *s1 == *s2)
-	{
-		++s1;
-		++s2;
-	}
-	return (*s1 - *s2);
+    *info = malloc(sizeof(s_info));
+    if (!info)
+        return (ERROR);
+    (*info)->min_value = 0;
+    if (init_stack(&(*info)->ans) == ERROR)
+        return (ERROR);
+    (*info)->size = argc - 1;
+    (*info)->median = 0;
+    return (SUCCESS);
 }

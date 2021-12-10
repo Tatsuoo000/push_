@@ -43,7 +43,8 @@ SRCNAME	=	ft_strlen.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
-			ft_ulltoa.c
+			ft_ulltoa.c \
+			ft_malloc.c
 
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)

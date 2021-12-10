@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   half_set.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 19:08:02 by tkano             #+#    #+#             */
-/*   Updated: 2021/10/05 22:13:25 by tkano            ###   ########.fr       */
+/*   Created: 2021/12/07 22:58:57 by tkano             #+#    #+#             */
+/*   Updated: 2021/12/09 22:36:58 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-void	do_sb(s_stack **b)
+/*
+int first_half_set(s_stack **a, s_stack **b, s_info **info)
 {
-	long	tmp;
+	int		i;
+	int		j;
+	char	flag;
 
-	while ((*b)->prev->value != DUMMY)
+	i = 0;
+	j = 0;
+	while (i < (*info)->size && j < (*info)->median)
 	{
-		*b = (*b)->next;
+		if ((*a)->value >= (*info)->median)
+		{
+			return (ERROR);
+		}
+		return (SUCCESS);
 	}
-	tmp = (*b)->value;
-	(*b)->value = (*b)->next->value;
-	(*b)->next->value = tmp;
+	return (SUCCESS);
 }
+*/

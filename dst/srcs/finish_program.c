@@ -12,10 +12,12 @@
 
 #include "pushswap.h"
 
-int	finish_program(int flag, s_stack **a, s_stack **b)
+int	finish_program(int flag, s_stack **a, s_stack **b, s_info **info)
 {
 	clear_stack(a);
 	clear_stack(b);
+	clear_stack(&((*info)->ans));
+	free(*info);
 	if (flag == ERROR)
 	{
 		put_error();

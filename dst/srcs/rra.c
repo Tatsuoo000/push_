@@ -16,16 +16,27 @@ void	do_rra(s_stack **a)
 {
 	long	tmp;
 
-	while ((*a)->next->value != DUMMY)
+	while ((*a)->value != DUMMY)
 	{
 		*a = (*a)->next;
 	}
-	tmp = (*a)->value;
-	(*a)->value = DUMMY;
-	(*a)->next->value = tmp;
+	tmp = (*a)->prev->value;
+	(*a)->value = tmp;
+	(*a)->prev->value = DUMMY;
 }
 
-void	ft_put_rra(void)
+int	add_ans_rra(s_stack **a, s_info **info)
 {
-	write(1, "rra\n", 4);
+	do_rra(a);
+	if (add_stack(&((*info)->ans), RRA))
+		return (ERROR);
+	return (SUCCESS);
+}
+
+int	add_ans_rrb(s_stack **b, s_info **info)
+{
+	do_rra(b);
+	if (add_stack(&((*info)->ans), RRB))
+		return (ERROR);
+	return (SUCCESS);
 }

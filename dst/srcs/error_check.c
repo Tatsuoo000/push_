@@ -75,20 +75,6 @@ int	ft_isnum(char *argv)
 	return (SUCCESS);
 }
 
-int	ft_isdup(char **argv, int i, int argc)
-{
-	int	j;
-
-	j = i + 1;
-	while (j < argc)
-	{
-		if (ft_strcmp(argv[i], argv[j]) == False)
-			return (False);
-		j++;
-	}
-	return (True);
-}
-
 int	error_check(int argc, char **argv)
 {
 	int		i;
@@ -99,8 +85,6 @@ int	error_check(int argc, char **argv)
 		if (ft_isnum(argv[i]) == ERROR)
 			return (ERROR);
 		if (ft_isint(argv[i]) == False)
-			return (ERROR);
-		if (ft_isdup(argv, i, argc) == False)
 			return (ERROR);
 		i++;
 	}

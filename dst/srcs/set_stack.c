@@ -40,6 +40,10 @@ int	set_stack(s_stack **a, s_stack **b, int argc, char **argv)
 		//printf("v->now: %d\n", (*a)->next->value);
 		i++;
 	}
+	while ((*a)->prev->value != DUMMY)
+	{
+		(*a) = (*a)->next;
+	}
 	//printf("v->next: %d\n", (*a)->next->value);
 	return (SUCCESS);
 }

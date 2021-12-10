@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrb.c                                              :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 11:44:44 by tkano             #+#    #+#             */
-/*   Updated: 2021/08/05 11:44:44 by tkano            ###   ########.fr       */
+/*   Created: 2021/12/06 21:34:14 by tkano             #+#    #+#             */
+/*   Updated: 2021/12/06 21:34:14 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	do_rrb(s_stack **b)
+int is_sorted(s_stack *v)
 {
-	long	tmp;
+    s_stack *tmp;
 
-	while ((*b)->next->value != DUMMY)
-	{
-		*b = (*b)->next;
-	}
-	tmp = (*b)->value;
-	(*b)->value = DUMMY;
-	(*b)->next->value = tmp;
+    tmp = v;
+    while (tmp->next->value != DUMMY)
+    {
+        if (tmp->value > tmp->next->value)
+            return (False);
+        tmp = tmp->next;
+    }
+    return (True);
 }

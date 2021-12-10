@@ -7,13 +7,10 @@ SRCNAME	= 	main.c\
 			pa.c\
 			pb.c\
 			ra.c\
-			rb.c\
 			rr.c\
 			rra.c\
-			rrb.c\
 			rrr.c\
 			sa.c\
-			sb.c\
 			set_stack.c\
 			sort_2.c\
 			sort_3.c\
@@ -24,7 +21,13 @@ SRCNAME	= 	main.c\
 			stackmeidian.c\
 			stackmin.c\
 			finish_program.c\
-			put_stack.c
+			put_stack.c\
+			info_init.c\
+			is_sorted.c\
+			is_dup.c\
+			is_dup_util.c\
+			half_set.c
+
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)
 INCLUDE	= -I./includes
