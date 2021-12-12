@@ -99,6 +99,8 @@ int     add_ans_ra(s_stack **a, s_info **info);
 int     add_ans_rb(s_stack **b, s_info **info);
 int 	add_ans_rra(s_stack **a, s_info **info);
 int 	add_ans_rrb(s_stack **b, s_info **info);
+int     pa_ra_set(s_stack **a, s_stack **b, s_info **info, int n);
 void	put_command(s_stack *cmd);
+int     command_loop(s_stack **a, s_stack **b, s_info **info, int cmd);
 
 #endif
