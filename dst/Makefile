@@ -26,7 +26,12 @@ SRCNAME	= 	main.c\
 			is_sorted.c\
 			is_dup.c\
 			is_dup_util.c\
-			half_set.c
+			half_set.c\
+			quick_sort.c\
+			command_set.c\
+			quick_sort2.c\
+			quick_sort3.c\
+			command_set2.c
 
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)
