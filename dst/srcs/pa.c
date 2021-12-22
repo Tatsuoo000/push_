@@ -24,9 +24,9 @@ int	do_pa(s_stack **a, s_stack **b)
 	return (SUCCESS);
 }
 
-int	add_ans_pa(s_stack **a, s_stack **b, s_info **info)
+int	add_ans_pa(s_info **info)
 {
-	if (do_pa(a, b))
+	if (do_pa(&((*info)->a), &((*info)->b)))
 		return (ERROR);
 	if (add_stack(&((*info)->ans), PA))
 		return (ERROR);

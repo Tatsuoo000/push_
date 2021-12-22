@@ -29,17 +29,17 @@ int	swap_flag(s_stack **a, s_info **info)
 	return (0);
 }
 
-int quicksort_second(s_stack **a, s_stack **b, s_info **info, int *middle, int end)
+int quicksort_second(s_info **info, int *middle, int end)
 {
     int i;
 
     i = *middle;
     while (i < end)
     {
-        if (swap_flag(a, info))
+        if (swap_flag(&((*info)->a), info))
         {
 			//printf("quick_sort_second:, middle: %d, end %d\n",  *middle, end);
-            if (swap_push(a, b, info))
+            if (swap_push(info))
 				return (ERROR);
 			*middle += 3;
 			i += 3;
@@ -48,9 +48,9 @@ int quicksort_second(s_stack **a, s_stack **b, s_info **info, int *middle, int e
 		else
 		{
 			//printf("quick_sort_second_else:, middle: %d, end %d\n",  *middle, end);
-			if (sa_min(a, b, info))
+			if (sa_min(info))
 				return (ERROR);
-			if (pa_or_ra_min(a, b, info, middle))
+			if (pa_or_ra_min(info, middle))
 				return (ERROR);
 			++i;
 		}

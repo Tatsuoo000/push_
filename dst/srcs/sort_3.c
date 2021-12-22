@@ -12,33 +12,33 @@
 
 #include "pushswap.h"
 
-void	sort_3(s_stack **a, s_info **info)
+void	sort_3(s_info **info)
 {
 	long	first;
 	long	second;
 	long	third;
 
-	while((*a)->value != DUMMY)
+	while((*info)->a->value != DUMMY)
 	{
-		*a = (*a)->next;
+		(*info)->a = (*info)->a->next;
 	}
-	first = (*a)->next->value;
-	second = (*a)->next->next->value;
-	third = (*a)->next->next->next->value;
+	first = (*info)->a->next->value;
+	second = (*info)->a->next->next->value;
+	third = (*info)->a->next->next->next->value;
 	if (first > second && first < third)
-		add_ans_sa(a, info);
+		add_ans_sa(info);
 	if (second > third && second < first)
 	{
-		add_ans_sa(a, info);
-		add_ans_rra(a, info);
+		add_ans_sa(info);
+		add_ans_rra(info);
 	}
 	if (third > second && third < first)
-		add_ans_ra(a, info);
+		add_ans_ra(info);
 	if (third > first && third < second)
 	{
-		add_ans_sa(a, info);
-		add_ans_ra(a, info);
+		add_ans_sa(info);
+		add_ans_ra(info);
 	}
 	if (first > third && first < second)
-		add_ans_rra(a, info);
+		add_ans_rra(info);
 }

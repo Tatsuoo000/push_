@@ -12,34 +12,34 @@
 
 #include "pushswap.h"
 
-int		sort_6(s_stack **a, s_stack **b, s_info **info)
+int		sort_6(s_info **info)
 {
 	int		len;
 	int		loc;
 	long	min;
 
-	len = stacklen(*a);
+	len = stacklen((*info)->a);
 	loc = 0;
-	min = stackmin(a, &loc, len);
+	min = stackmin(&((*info)->a), &loc, len);
 	while (len > 3)
 	{
 		//printf("num: %ld, loc: %d, start: %ld, len: %d\n", min, loc, (*a)->value, len);
-		while (min != (*a)->value)
+		while (min != (*info)->a->value)
 		{
 			if (loc < len / 2)
-				add_ans_ra(a, info);
+				add_ans_ra(info);
 			else
-				add_ans_rra(a, info);
+				add_ans_rra(info);
 			loc++;
 			//printf("num: %ld, loc: %d, start: %ld\n", min, loc, (*a)->value);
 		}
 		//printf("check5\n");
-		add_ans_pb(a, b, info);
+		add_ans_pb(info);
 		len--;
-		min = stackmin(a, &loc, len);
+		min = stackmin(&((*info)->a), &loc, len);
 	}
-	sort_3(a, info);
-	while (stacklen(*b) > 0)
-		add_ans_pa(a, b, info);
+	sort_3(info);
+	while (stacklen((*info)->b) > 0)
+		add_ans_pa(info);
 	return (0);
 }

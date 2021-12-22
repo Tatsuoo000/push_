@@ -44,6 +44,6 @@ int	set_stack(s_stack **a, s_stack **b, int argc, char **argv)
 	{
 		(*a) = (*a)->next;
 	}
-	//printf("v->next: %d\n", (*a)->next->value);
+	//printf("v->next: %ld\n", (*a)->value);
 	return (SUCCESS);
 }

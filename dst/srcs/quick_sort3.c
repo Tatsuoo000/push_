@@ -12,60 +12,60 @@
 
 #include "pushswap.h"
 
-int	swap_push3(s_stack **a, s_stack **b, s_info **info)
+int	swap_push3(s_info **info)
 {
-	if (command_loop(a, b, info, 1, PB))
+	if (command_loop(info, 1, PB))
 		return (ERROR);
-	if (command_loop(a, b, info, 1, SA))
+	if (command_loop(info, 1, SA))
 		return (ERROR);
-	if (command_loop(a, b, info, 2, RA))
+	if (command_loop(info, 2, RA))
 		return (ERROR);
-	if (pa_ra_set(a, b, info, 1))
+	if (pa_ra_set(info, 1))
 		return (ERROR);
 	(*info)->min_value += 3;
 	return (SUCCESS);
 }
 
-int	swap_push2(s_stack **a, s_stack **b, s_info **info)
+int	swap_push2(s_info **info)
 {
-	if ((*info)->min_value == (*a)->next->value && \
-		(*info)->min_value + 1 == (*a)->next->next->value)
+	if ((*info)->min_value == (*info)->a->next->value && \
+		(*info)->min_value + 1 == (*info)->a->next->next->value)
 	{
-		if (command_loop(a, b, info, 1, SA))
+		if (command_loop(info, 1, SA))
 			return (ERROR);
-		if (command_loop(a, b, info, 1, RA))
+		if (command_loop(info, 1, RA))
 			return (ERROR);
-		if (command_loop(a, b, info, 1, SA))
+		if (command_loop(info, 1, SA))
 			return (ERROR);
-		if (command_loop(a, b, info, 2, RA))
+		if (command_loop(info, 2, RA))
 			return (ERROR);
 		(*info)->min_value += 3;
 	}
-	else if ((*info)->min_value + 1 == (*a)->next->value && \
-			(*info)->min_value == (*a)->next->next->value)
-		return (swap_push3(a, b, info));
+	else if ((*info)->min_value + 1 == (*info)->a->next->value && \
+			(*info)->min_value == (*info)->a->next->next->value)
+		return (swap_push3(info));
 	return (SUCCESS);
 }
 
-int	swap_push(s_stack **a, s_stack **b, s_info **info)
+int	swap_push(s_info **info)
 {
-	if ((*info)->min_value + 1 == (*a)->value && \
-		(*info)->min_value + 2 == (*a)->next->value && \
-		(*info)->min_value == (*a)->next->next->value)
+	if ((*info)->min_value + 1 == (*info)->a->value && \
+		(*info)->min_value + 2 == (*info)->a->next->value && \
+		(*info)->min_value == (*info)->a->next->next->value)
 	{
-		if (command_loop(a, b, info, 1, PB))
+		if (command_loop(info, 1, PB))
 			return (ERROR);
-		if (command_loop (a, b, info, 1, SA))
+		if (command_loop (info, 1, SA))
 			return (ERROR);
-		if (command_loop(a, b, info, 1, RA))
+		if (command_loop(info, 1, RA))
 			return (ERROR);
-		if (command_loop(a, b, info, 1, PA))
+		if (command_loop(info, 1, PA))
 			return (ERROR);
-		if (command_loop(a, b, info, 2, RA))
+		if (command_loop(info, 2, RA))
 			return (ERROR);
 		(*info)->min_value += 3;
 	}
-	else if ((*info)->min_value + 2 == (*a)->value)
-		return (swap_push2(a, b, info));
+	else if ((*info)->min_value + 2 == (*info)->a->value)
+		return (swap_push2(info));
 	return (SUCCESS);
 }

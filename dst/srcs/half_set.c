@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 22:58:57 by tkano             #+#    #+#             */
-/*   Updated: 2021/12/22 11:11:25 by tkano            ###   ########.fr       */
+/*   Updated: 2021/12/22 14:21:00 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int search_min_value(s_stack **v, s_info **info)
 
 }
 
-int	b_half_set(s_stack **a, s_stack **b, s_info **info, int *start, int middle, int end)
+int	b_half_set(s_info **info, int *start, int middle, int end)
 {
 	int i;
 	int	cmd;
@@ -43,19 +43,19 @@ int	b_half_set(s_stack **a, s_stack **b, s_info **info, int *start, int middle, 
 	//printf("b_half_set start: %d, middle %d, end %d\n", *start, middle, end);
 	while (*start < end && middle < i)
 	{
-		if ((*b)->value >= middle)
+		if ((*info)->b->value >= middle)
 			--i;
-		if (search_min_value(b, info))
+		if (search_min_value(&((*info)->b), info))
 		{
-			if (pa_ra_min(a, b, info, start))
+			if (pa_ra_min(info, start))
 				return (ERROR);
 		}
 		else
 		{
 			cmd = RB;
-			if ((*b)->value >= middle)
+			if ((*info)->b->value >= middle)
 				cmd = PA;
-			if (command_loop(a, b, info, 1, cmd))
+			if (command_loop(info, 1, cmd))
 				return (ERROR);
 			--end;
 		}
@@ -65,7 +65,7 @@ int	b_half_set(s_stack **a, s_stack **b, s_info **info, int *start, int middle, 
 	return (SUCCESS);
 }
 
-int first_half_set(s_stack **a, s_stack **b, s_info **info, int median)
+int first_half_set(s_info **info, int median)
 {
 	int		i;
 	int		j;
@@ -76,15 +76,15 @@ int first_half_set(s_stack **a, s_stack **b, s_info **info, int median)
 	while (i < (*info)->size && j < median)
 	{
 		//printf("size: %ld, median: %d\n", (*info)->size, median);
-		if ((*a)->value >= median)
+		if ((*info)->a->value >= median)
 		{
-			if (add_ans_ra(a, info))
+			if (add_ans_ra(info))
 				return (ERROR);
 		}
 		else
 		{
 			++j;
-			if (add_ans_pb(a, b, info))
+			if (add_ans_pb(info))
 				return (ERROR);
 		}
 		++i;

@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-int info_init(s_info **info, int argc)
+int info_init(s_stack **a, s_stack **b, s_info **info, int argc)
 {
     *info = malloc(sizeof(s_info));
     if (!info)
@@ -22,5 +22,7 @@ int info_init(s_info **info, int argc)
         return (ERROR);
     (*info)->size = argc - 1;
     (*info)->median = 0;
+    (*info)->a = *a;
+    (*info)->b = *b;
     return (SUCCESS);
 }

@@ -29,8 +29,8 @@ long	pop(s_stack **v)
 	//printf("clear: %p\n", (*v)->prev);
 	//printf("prev: %p, value: %d\n", (*v)->next->prev, (*v)->next->prev->value);
 	(*v)->next->prev = (*v)->prev;
-	free(*v);
-	*v = NULL;
+	//free(*v);
+	//*v = NULL;
 	*v = tmp;
 	return (ret);
 }
@@ -68,9 +68,9 @@ int	do_pb(s_stack **a, s_stack **b)
 	return (SUCCESS);
 }
 
-int	add_ans_pb(s_stack **a, s_stack **b, s_info **info)
+int	add_ans_pb(s_info **info)
 {
-	if (do_pb(a, b))
+	if (do_pb(&((*info)->a), &((*info)->b)))
 		return (ERROR);
 	if (add_stack(&((*info)->ans), PB))
 		return (ERROR);

@@ -26,12 +26,12 @@ int	main(int argc, char **argv)
 		return (put_error());
 	if (set_stack(&a, &b, argc, argv) == ERROR)
 		return (finish_program(ERROR, &a, &b, &info));
-	if (info_init(&info, argc) == ERROR)
+	if (info_init(&a, &b, &info, argc) == ERROR)
 		return (finish_program(ERROR, &a, &b, &info));
 	if (is_sorted(a))
 		return (finish_program(SUCCESS, &a, &b, &info));
 	if (ft_isdup(&a))
-		return (finish_program(SUCCESS, &a, &b, &info));
+		return (finish_program(ERROR, &a, &b, &info));
 	//sentinel_a = get_sentinetal(a);
 	//write(1, "push_swap\n", 10);
 	//printf("v->main: %d\n", a->next->next->value);
@@ -39,13 +39,13 @@ int	main(int argc, char **argv)
 	if (argc == 1 || argc == 2)
 		return (finish_program(SUCCESS, &a, &b, &info));
 	else if (argc == 3)
-		(sort_2(&a, &info));
+		(sort_2(&info));
 	else if (argc == 4)
-		sort_3(&a, &info);
+		sort_3(&info);
 	else if (argc <= 7)
-		sort_6(&a, &b, &info);
+		sort_6(&info);
 	else
-		sort_100(&a, &b, &info);
+		sort_100(&info);
 	//put_stack(a);
 	//put_stack(b);
 	put_command(info->ans);

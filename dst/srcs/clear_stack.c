@@ -16,6 +16,8 @@ void	clear_stack(s_stack **v)
 {
 	s_stack	*tmp;
 
+	if (*v == NULL)
+		return ;
 	while ((*v)->prev->value != DUMMY)
 	{
 		*v = (*v)->next;
