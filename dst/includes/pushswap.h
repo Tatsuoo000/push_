@@ -88,7 +88,7 @@ int		info_init(s_info **info, int argc);
 int		init_stack(s_stack **v);
 int		is_sorted(s_stack *v);
 int		ft_isdup(s_stack **a);
-int     first_half_set(s_stack **a, s_stack **b, s_info **info);
+int 	first_half_set(s_stack **a, s_stack **b, s_info **info, int median);
 void	int_cpy(int *p, const int *s, size_t n);
 void	replacement_to_index(s_stack *a, int *array);
 int     add_ans_pa(s_stack **a, s_stack **b, s_info **info);
@@ -99,6 +99,17 @@ int     add_ans_ra(s_stack **a, s_info **info);
 int     add_ans_rb(s_stack **b, s_info **info);
 int 	add_ans_rra(s_stack **a, s_info **info);
 int 	add_ans_rrb(s_stack **b, s_info **info);
+int     pa_ra_set(s_stack **a, s_stack **b, s_info **info, int n);
 void	put_command(s_stack *cmd);
+int     command_loop(s_stack **a, s_stack **b, s_info **info, int loop, int cmd);
+int		command_exec(s_stack **a, s_stack **b, s_info **info, int cmd);
+int		pa_ra_set(s_stack **a, s_stack **b, s_info **info, int n);
+int		pa_ra_min(s_stack **a, s_stack **b, s_info **info, int *start);
+int		sa_min(s_stack **a, s_stack **b, s_info **info);
+int		pa_or_ra_min(s_stack **a, s_stack **b, s_info **info, int *start);
+int		b_quicksort(s_stack **a, s_stack **b, s_info **info, int start, int end);
+int		b_half_set(s_stack **a, s_stack **b, s_info **info, int *start, int middle, int end);
+int		quicksort_second(s_stack **a, s_stack **b, s_info **info, int *middle, int end);
+int		swap_push(s_stack **a, s_stack **b, s_info **info);
 
 #endif
