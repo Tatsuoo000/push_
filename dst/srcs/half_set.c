@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 22:58:57 by tkano             #+#    #+#             */
-/*   Updated: 2021/12/18 22:38:10 by tkano            ###   ########.fr       */
+/*   Updated: 2021/12/22 11:11:25 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	b_half_set(s_stack **a, s_stack **b, s_info **info, int *start, int middle, 
 	int	cmd;
 
 	i = end;
-	//printf("b_half_set start: %d\n", *start);
+	//printf("b_half_set start: %d, middle %d, end %d\n", *start, middle, end);
 	while (*start < end && middle < i)
 	{
 		if ((*b)->value >= middle)
@@ -61,6 +61,7 @@ int	b_half_set(s_stack **a, s_stack **b, s_info **info, int *start, int middle, 
 		}
 	}
 	//printf("b_half_set start: %d\n", *start);
+	//put_stack(*a);
 	return (SUCCESS);
 }
 

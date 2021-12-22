@@ -66,6 +66,6 @@ int	swap_push(s_stack **a, s_stack **b, s_info **info)
 		(*info)->min_value += 3;
 	}
 	else if ((*info)->min_value + 2 == (*a)->value)
-		return (swap_push(a, b, info));
+		return (swap_push2(a, b, info));
 	return (SUCCESS);
 }

@@ -30,27 +30,27 @@ void	put_stack(s_stack *v)
 void	put_selected_command(s_stack *cmd)
 {
 		if (cmd->value == PA)
-			ft_putstr_fd("PA", 1);
+			ft_putstr_fd("pa", 1);
 		if (cmd->value == PB)
-			ft_putstr_fd("PB", 1);
+			ft_putstr_fd("pb", 1);
 		if (cmd->value == SA)
-			ft_putstr_fd("SA", 1);
+			ft_putstr_fd("sa", 1);
 		if (cmd->value == SB)
-			ft_putstr_fd("SB", 1);
+			ft_putstr_fd("sb", 1);
 		if (cmd->value == SS)
-			ft_putstr_fd("SS", 1);
+			ft_putstr_fd("ss", 1);
 		if (cmd->value == RA)
-			ft_putstr_fd("RA", 1);
+			ft_putstr_fd("ra", 1);
 		if (cmd->value == RB)
-			ft_putstr_fd("RB", 1);
+			ft_putstr_fd("rb", 1);
 		if (cmd->value == RR)
-			ft_putstr_fd("RR", 1);
+			ft_putstr_fd("rr", 1);
 		if (cmd->value == RRA)
-			ft_putstr_fd("RRA", 1);
+			ft_putstr_fd("rra", 1);
 		if (cmd->value == RRB)
-			ft_putstr_fd("RRB", 1);
+			ft_putstr_fd("rrb", 1);
 		if (cmd->value == RRR)
-			ft_putstr_fd("RRR", 1);
+			ft_putstr_fd("rrr", 1);
 }
 
 void	put_command(s_stack *cmd)

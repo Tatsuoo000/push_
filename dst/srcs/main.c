@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	if (ft_isdup(&a))
 		return (finish_program(SUCCESS, &a, &b, &info));
 	//sentinel_a = get_sentinetal(a);
-	write(1, "push_swap\n", 10);
+	//write(1, "push_swap\n", 10);
 	//printf("v->main: %d\n", a->next->next->value);
 	//put_stack(a);
 	if (argc == 1 || argc == 2)
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		sort_3(&a, &info);
 	else if (argc <= 7)
 		sort_6(&a, &b, &info);
-	else if (argc <= 101)
+	else
 		sort_100(&a, &b, &info);
 	//put_stack(a);
 	//put_stack(b);

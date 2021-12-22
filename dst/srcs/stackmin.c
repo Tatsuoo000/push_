@@ -35,7 +35,7 @@ long	stackmin(s_stack **a, int *loc, int len)
 		else
 			i++;
 	}
-	printf("check4, min: %ld\n", min);
+	//printf("check4, min: %ld\n", min);
 	while ((*a)->prev->value != DUMMY)
 	{
 		*a = (*a)->prev;

@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:45:42 by tkano             #+#    #+#             */
-/*   Updated: 2021/12/18 21:49:24 by tkano            ###   ########.fr       */
+/*   Updated: 2021/12/22 11:39:12 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	b_qs3(s_stack **a, s_stack **b, s_info **info, int start)
 
 int	b_qs2(s_stack **a, s_stack **b, s_info **info, int start)
 {
-	if ((*b)->value == start)
+	if ((*b)->next->value == start)
 	{
 		if (command_loop(a, b, info, 2, PA))
 			return (ERROR);
