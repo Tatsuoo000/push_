@@ -71,6 +71,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 char			*ft_ulltoa(unsigned long long n);
 int				ft_strcmp(const char *s1, const char *s2);
-int 			ft_malloc(void *pointer, size_t type, size_t size);
+int				ft_malloc(void *pointer, size_t type, size_t size);
 
 #endif

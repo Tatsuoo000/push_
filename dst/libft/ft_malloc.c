@@ -12,8 +12,8 @@
 
 #include "libft.h"
 
-int ft_malloc(void *pointer, size_t type, size_t size)
+int	ft_malloc(void *pointer, size_t type, size_t size)
 {
-    *(void **)pointer = malloc(type * size);
-    return (!*(void **)pointer);
+	*(void **)pointer = malloc(type * size);
+	return (!*(void **)pointer);
 }

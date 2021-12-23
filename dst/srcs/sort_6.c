@@ -18,7 +18,7 @@ int	sort_6_util(t_info **info, int len, int loc, int min)
 	{
 		while (min != (*info)->a->value)
 		{
-			if (loc < len / 2)
+			if (loc <= len / 2)
 			{
 				if (add_ans_ra(info))
 					return (ERROR);
