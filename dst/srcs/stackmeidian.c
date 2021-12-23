@@ -12,30 +12,27 @@
 
 #include "pushswap.h"
 
-long	median_rec(s_stack *v, long min)
+long	median_rec(t_ft_stack *v, long min)
 {
 	long	ret;
-	//int		i;
 
-	//i = 1;
 	while (v->prev->value != DUMMY)
 	{
 		v = v->next;
 	}
 	ret = __INT_MAX__;
-	while(v->value != DUMMY)
+	while (v->value != DUMMY)
 	{
 		if (min < v->value && ret > v->value)
 		{
 			ret = v->value;
-			//printf("median: %ld\n", ret);
 		}
 		v = v->next;
 	}
 	return (ret);
 }
 
-long	stackmedian(s_stack **v)
+long	stackmedian(t_ft_stack **v)
 {
 	long	ret;
 	int		len;
@@ -55,6 +52,5 @@ long	stackmedian(s_stack **v)
 	{
 		(*v) = (*v)->next;
 	}
-	//printf("median: %ld\n", ret);
 	return (ret);
 }

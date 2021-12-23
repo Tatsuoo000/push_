@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void	do_ra(s_stack **a)
+void	do_ra(t_ft_stack **a)
 {
 	long	tmp;
 
@@ -25,17 +25,17 @@ void	do_ra(s_stack **a)
 	(*a)->prev->prev->value = tmp;
 }
 
-int	add_ans_ra(s_stack **a, s_info **info)
+int	add_ans_ra(t_info **info)
 {
-	do_ra(a);
+	do_ra(&((*info)->a));
 	if (add_stack(&((*info)->ans), RA))
 		return (ERROR);
 	return (SUCCESS);
 }
 
-int	add_ans_rb(s_stack **b, s_info **info)
+int	add_ans_rb(t_info **info)
 {
-	do_ra(b);
+	do_ra(&((*info)->b));
 	if (add_stack(&((*info)->ans), RB))
 		return (ERROR);
 	return (SUCCESS);

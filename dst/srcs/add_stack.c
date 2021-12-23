@@ -12,11 +12,11 @@
 
 #include "pushswap.h"
 
-int	add_stack(s_stack **v, int num)
+int	add_stack(t_ft_stack **v, int num)
 {
-	s_stack	*new;
+	t_ft_stack	*new;
 
-	new = malloc(sizeof(s_stack));
+	new = malloc(sizeof(t_ft_stack));
 	if (!new)
 		return (ERROR);
 	new->value = num;

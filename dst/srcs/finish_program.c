@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-int	finish_program(int flag, s_stack **a, s_stack **b, s_info **info)
+int	finish_program(int flag, t_ft_stack **a, t_ft_stack **b, t_info **info)
 {
 	clear_stack(a);
 	clear_stack(b);

@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void	do_rrr(s_stack **a, s_stack **b)
+void	do_rrr(t_ft_stack **a, t_ft_stack **b)
 {
 	do_rra(a);
 	do_rra(b);

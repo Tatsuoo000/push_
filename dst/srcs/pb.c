@@ -12,10 +12,10 @@
 
 #include "pushswap.h"
 
-long	pop(s_stack **v)
+long	pop(t_ft_stack **v)
 {
-	long	ret;
-	s_stack	*tmp;
+	long		ret;
+	t_ft_stack	*tmp;
 
 	while ((*v)->prev->value != DUMMY)
 	{
@@ -23,23 +23,17 @@ long	pop(s_stack **v)
 	}
 	ret = (*v)->value;
 	tmp = (*v)->next;
-	//printf("clear: %p, value: %d\n", *v, (*v)->value);
-	//printf("clear: %p, value: %d\n", (*v)->prev->next, (*v)->prev->next->value);
 	(*v)->prev->next = (*v)->next;
-	//printf("clear: %p\n", (*v)->prev);
-	//printf("prev: %p, value: %d\n", (*v)->next->prev, (*v)->next->prev->value);
 	(*v)->next->prev = (*v)->prev;
-	free(*v);
-	*v = NULL;
 	*v = tmp;
 	return (ret);
 }
 
-int	push(s_stack **v, long num)
+int	push(t_ft_stack **v, long num)
 {
-	s_stack	*new;
+	t_ft_stack	*new;
 
-	new = malloc(sizeof(s_stack));
+	new = malloc(sizeof(t_ft_stack));
 	if (!new)
 		return (ERROR);
 	new->value = num;
@@ -55,22 +49,19 @@ int	push(s_stack **v, long num)
 	return (SUCCESS);
 }
 
-int	do_pb(s_stack **a, s_stack **b)
+int	do_pb(t_ft_stack **a, t_ft_stack **b)
 {
 	long	tmp;
 
-	//printf("pb: %p, value: %ld\n", *a, (*a)->value);
 	tmp = pop(a);
-	//printf("pb: %p, value: %ld\n", *a, (*a)->value);
 	if (push(b, tmp) == ERROR)
 		return (ERROR);
-	//printf("pb: %p, value: %ld\n", *a, (*a)->value);
 	return (SUCCESS);
 }
 
-int	add_ans_pb(s_stack **a, s_stack **b, s_info **info)
+int	add_ans_pb(t_info **info)
 {
-	if (do_pb(a, b))
+	if (do_pb(&((*info)->a), &((*info)->b)))
 		return (ERROR);
 	if (add_stack(&((*info)->ans), PB))
 		return (ERROR);

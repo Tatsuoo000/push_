@@ -12,23 +12,22 @@
 
 #include "pushswap.h"
 
-void	clear_stack(s_stack **v)
+void	clear_stack(t_ft_stack **v)
 {
-	s_stack	*tmp;
+	t_ft_stack	*tmp;
 
+	if (*v == NULL)
+		return ;
 	while ((*v)->prev->value != DUMMY)
 	{
 		*v = (*v)->next;
 	}
-	//printf("1st: %d\n", (*v)->value);
 	while ((*v)->value != DUMMY)
 	{
 		tmp = *v;
 		(*v) = (*v)->next;
 		free(tmp);
 		tmp = NULL;
-		//printf("clear: %p\n", tmp);
-		//printf("clear: %p\n", *v);
 	}
 	free(*v);
 	*v = NULL;

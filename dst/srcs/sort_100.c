@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-int	quick_sort(s_stack **a, s_stack **b, s_info **info, int start, int end)
+int	quick_sort(t_info **info, int start, int end)
 {
 	int	middle;
 
@@ -20,49 +20,41 @@ int	quick_sort(s_stack **a, s_stack **b, s_info **info, int start, int end)
 		return (SUCCESS);
 	if (end - start <= 3)
 	{
-		if (b_quicksort(a, b, info, start, end))
+		if (b_quicksort(info, start, end))
 			return (ERROR);
 		return (SUCCESS);
 	}
 	middle = (end - start - 1) / 2 + 1 + start;
-	//printf("quick_sort: start: %d, middle: %d, end %d\n", start,  middle, end);
-	if (b_half_set(a, b, info, &start, middle, end))
+	if (b_half_set(info, &start, middle, end))
 		return (ERROR);
-	if (quick_sort(a, b, info, start, middle))
+	if (quick_sort(info, start, middle))
 		return (ERROR);
 	if (middle < (*info)->min_value)
 		middle = (*info)->min_value;
-	if (quicksort_second(a, b, info, &middle, end))
+	if (quicksort_second(info, &middle, end))
 		return (ERROR);
-	if (quick_sort(a, b, info, middle, end))
+	if (quick_sort(info, middle, end))
 		return (ERROR);
 	return (SUCCESS);
 }
 
-int		sort_100(s_stack **a, s_stack **b, s_info **info)
+int	sort_100(t_info **info)
 {
 	int	median;
 
 	median = ((*info)->size -1) / 2 + 1;
-	if (first_half_set(a, b, info, median))
-	 	return (ERROR);
+	if (first_half_set(info, median))
+		return (ERROR);
 	while ((*info)->min_value < median)
 	{
-		//printf("quick_sort: start: %ld, end %ld\n", (*info)->min_value, (*info)->median);
-		if (quick_sort(a, b,info, (*info)->min_value, median))
+		if (quick_sort(info, (*info)->min_value, median))
 			return (ERROR);
 	}
 	median = (*info)->min_value;
-	//put_stack(*a);
-	//put_stack(*b);
-	//printf("before later half median: %d, min_value: %ld\n", median, (*info)->min_value);
-	if (quicksort_second(a, b, info, &median, (*info)->size))
+	if (quicksort_second(info, &median, (*info)->size))
 		return (ERROR);
 	while ((*info)->min_value < (*info)->size)
-		if (quick_sort(a, b, info, (*info)->min_value, (*info)->size))
+		if (quick_sort(info, (*info)->min_value, (*info)->size))
 			return (ERROR);
-	//printf("start: %ld\n", (*a)->value);
-	//quick_sort(a, b, info);
 	return (SUCCESS);
-
 }

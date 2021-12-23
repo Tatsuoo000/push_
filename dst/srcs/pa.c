@@ -12,21 +12,19 @@
 
 #include "pushswap.h"
 
-int	do_pa(s_stack **a, s_stack **b)
+int	do_pa(t_ft_stack **a, t_ft_stack **b)
 {
 	long	tmp;
 
-	//printf("pb: %p, value: %d\n", *a, (*a)->value);
 	tmp = pop(b);
-	//printf("pb: %p, value: %d\n", *a, (*a)->value);
 	if (push(a, tmp) == ERROR)
 		return (ERROR);
 	return (SUCCESS);
 }
 
-int	add_ans_pa(s_stack **a, s_stack **b, s_info **info)
+int	add_ans_pa(t_info **info)
 {
-	if (do_pa(a, b))
+	if (do_pa(&((*info)->a), &((*info)->b)))
 		return (ERROR);
 	if (add_stack(&((*info)->ans), PA))
 		return (ERROR);

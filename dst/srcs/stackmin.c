@@ -12,19 +12,18 @@
 
 #include "pushswap.h"
 
-long	stackmin(s_stack **a, int *loc, int len)
+long	stackmin(t_ft_stack **a, int *loc, int len)
 {
 	long	min;
 	int		i;
 
 	i = 1;
-	//printf("check3\n");
 	while ((*a)->prev->value != DUMMY)
 	{
 		*a = (*a)->next;
 	}
 	min = (*a)->value;
-	while(i != len)
+	while (i != len)
 	{
 		*a = (*a)->next;
 		if (min > (*a)->value)
@@ -35,7 +34,6 @@ long	stackmin(s_stack **a, int *loc, int len)
 		else
 			i++;
 	}
-	printf("check4, min: %ld\n", min);
 	while ((*a)->prev->value != DUMMY)
 	{
 		*a = (*a)->prev;

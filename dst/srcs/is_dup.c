@@ -26,16 +26,16 @@ int	is_sorted_array(int *array, size_t n)
 	return (SUCCESS);
 }
 
-int move_half(int *array, int start, int end, int *temp)
+int	move_half(int *array, int start, int end, int *temp)
 {
-    int i;
-    int temp_end;
-    int median;
+	int	i;
+	int	temp_end;
+	int	median;
 
-    i = start;
-    temp_end = end;
-    median = (end - start) / 2 + start;
-    while (i < temp_end)
+	i = start;
+	temp_end = end;
+	median = (end - start) / 2 + start;
+	while (i < temp_end)
 	{
 		if (array[i] < array[median])
 		{
@@ -55,15 +55,15 @@ int move_half(int *array, int start, int end, int *temp)
 	return (start);
 }
 
-int     array_sort(int *array, int start, int end, int *temp)
+int	array_sort(int *array, int start, int end, int *temp)
 {
-    int median;
+	int	median;
 
-    if (end - start <= 1)
-        return (SUCCESS);
-    median = move_half(array, start, end, temp);
+	if (end - start <= 1)
+		return (SUCCESS);
+	median = move_half(array, start, end, temp);
 	if (median == -1)
-        return (ERROR);
+		return (ERROR);
 	int_cpy(array + start, temp + start, end - start);
 	if (array_sort(array, start, median, temp))
 		return (ERROR);
@@ -72,33 +72,32 @@ int     array_sort(int *array, int start, int end, int *temp)
 	return (SUCCESS);
 }
 
-
-void    stack_to_array(s_stack *a, int *array)
+void	stack_to_array(t_ft_stack *a, int *array)
 {
-    while (a->value != DUMMY)
-    {
-        *array = a->value;
-        ++array;
-        a = a->next;
-    }
+	while (a->value != DUMMY)
+	{
+		*array = a->value;
+		++array;
+		a = a->next;
+	}
 }
 
-int	    ft_isdup(s_stack **a)
+int	ft_isdup(t_ft_stack **a)
 {
 	int	n;
-    int *sorted;
-    int *temp;
+	int	*sorted;
+	int	*temp;
 
 	n = stacklen(*a);
-    temp = NULL;
-    if (ft_malloc(&sorted, sizeof(int), n) || ft_malloc(&temp, sizeof(int), n))
-    {
-        free(temp);
-        free(sorted);
-        return (ERROR);
-    }
-    stack_to_array(*a, sorted);
-    if (!array_sort(sorted, 0, n, temp))
+	temp = NULL;
+	if (ft_malloc(&sorted, sizeof(int), n) || ft_malloc(&temp, sizeof(int), n))
+	{
+		free(temp);
+		free(sorted);
+		return (ERROR);
+	}
+	stack_to_array(*a, sorted);
+	if (!array_sort(sorted, 0, n, temp))
 		n = is_sorted_array(sorted, n);
 	replacement_to_index(*a, sorted);
 	free(temp);

@@ -12,34 +12,49 @@
 
 #include "pushswap.h"
 
-int		sort_6(s_stack **a, s_stack **b, s_info **info)
+int	sort_6_util(t_info **info, int len, int loc, int min)
+{
+	while (len > 3)
+	{
+		while (min != (*info)->a->value)
+		{
+			if (loc < len / 2)
+			{
+				if (add_ans_ra(info))
+					return (ERROR);
+			}
+			else
+			{
+				if (add_ans_rra(info))
+					return (ERROR);
+			}
+			loc++;
+		}
+		if (add_ans_pb(info))
+			return (ERROR);
+		len--;
+		min = stackmin(&((*info)->a), &loc, len);
+	}
+	return (SUCCESS);
+}
+
+int	sort_6(t_info **info)
 {
 	int		len;
 	int		loc;
 	long	min;
 
-	len = stacklen(*a);
+	len = stacklen((*info)->a);
 	loc = 0;
-	min = stackmin(a, &loc, len);
-	while (len > 3)
+	min = stackmin(&((*info)->a), &loc, len);
+	if (sort_6_util(info, len, loc, min))
+		return (ERROR);
+	if (sort_3(info))
+		return (ERROR);
+	while (stacklen((*info)->b) > 0)
 	{
-		//printf("num: %ld, loc: %d, start: %ld, len: %d\n", min, loc, (*a)->value, len);
-		while (min != (*a)->value)
-		{
-			if (loc < len / 2)
-				add_ans_ra(a, info);
-			else
-				add_ans_rra(a, info);
-			loc++;
-			//printf("num: %ld, loc: %d, start: %ld\n", min, loc, (*a)->value);
-		}
-		//printf("check5\n");
-		add_ans_pb(a, b, info);
-		len--;
-		min = stackmin(a, &loc, len);
+		if (add_ans_pa(info))
+			return (ERROR);
 	}
-	sort_3(a, info);
-	while (stacklen(*b) > 0)
-		add_ans_pa(a, b, info);
-	return (0);
+	return (SUCCESS);
 }
