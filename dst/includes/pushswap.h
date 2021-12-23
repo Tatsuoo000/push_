@@ -111,5 +111,7 @@ int		b_quicksort(t_info **info, int start, int end);
 int		b_half_set(t_info **info, int *start, int middle, int end);
 int		quicksort_second(t_info **info, int *middle, int end);
 int		swap_push(t_info **info);
+void	opt_ans_rr(t_ft_stack *cmd);
+void	opt_ans_pp(t_ft_stack *cmd);
 
 #endif

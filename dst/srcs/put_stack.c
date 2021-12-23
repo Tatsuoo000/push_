@@ -59,6 +59,12 @@ void	put_command(t_ft_stack *cmd)
 	{
 		cmd = cmd->next;
 	}
+	opt_ans_rr(cmd);
+	while (cmd->prev->value != DUMMY)
+	{
+		cmd = cmd->next;
+	}
+	opt_ans_pp(cmd);
 	while (cmd->value != DUMMY)
 	{
 		put_selected_command(cmd);

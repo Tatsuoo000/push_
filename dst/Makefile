@@ -31,7 +31,8 @@ SRCNAME	= 	main.c\
 			command_set.c\
 			quick_sort2.c\
 			quick_sort3.c\
-			command_set2.c
+			command_set2.c\
+			command_opt.c
 
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)
