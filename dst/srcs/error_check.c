@@ -50,9 +50,9 @@ int	ft_isint(char *argv)
 		num += (argv[i] - '0');
 		i++;
 	}
-	if(ft_check(num * flag) == DUMMY)
-		return (False);
-	return (True);
+	if (ft_check(num * flag) == DUMMY)
+		return (FALSE);
+	return (TRUE);
 }
 
 int	ft_isnum(char *argv)
@@ -61,14 +61,14 @@ int	ft_isnum(char *argv)
 	size_t	i;
 
 	s = ft_strlen(argv);
-	if (ft_isdigit(argv[0]) == False && argv[0] != '-')
+	if (ft_isdigit(argv[0]) == FALSE && argv[0] != '-')
 		return (ERROR);
-	if (argv[0] == '-' && ft_isdigit(argv[1]) == False)
-		return(ERROR);
+	if (argv[0] == '-' && ft_isdigit(argv[1]) == FALSE)
+		return (ERROR);
 	i = 1;
 	while (i < s)
 	{
-		if (ft_isdigit(argv[i]) == False)
+		if (ft_isdigit(argv[i]) == FALSE)
 			return (ERROR);
 		i++;
 	}
@@ -80,11 +80,11 @@ int	error_check(int argc, char **argv)
 	int		i;
 
 	i = 1;
-	while(i < argc)
+	while (i < argc)
 	{
 		if (ft_isnum(argv[i]) == ERROR)
 			return (ERROR);
-		if (ft_isint(argv[i]) == False)
+		if (ft_isint(argv[i]) == FALSE)
 			return (ERROR);
 		i++;
 	}

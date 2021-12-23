@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-int	swap_push3(s_info **info)
+int	swap_push3(t_info **info)
 {
 	if (command_loop(info, 1, PB))
 		return (ERROR);
@@ -26,7 +26,7 @@ int	swap_push3(s_info **info)
 	return (SUCCESS);
 }
 
-int	swap_push2(s_info **info)
+int	swap_push2(t_info **info)
 {
 	if ((*info)->min_value == (*info)->a->next->value && \
 		(*info)->min_value + 1 == (*info)->a->next->next->value)
@@ -47,7 +47,7 @@ int	swap_push2(s_info **info)
 	return (SUCCESS);
 }
 
-int	swap_push(s_info **info)
+int	swap_push(t_info **info)
 {
 	if ((*info)->min_value + 1 == (*info)->a->value && \
 		(*info)->min_value + 2 == (*info)->a->next->value && \

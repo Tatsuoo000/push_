@@ -12,9 +12,9 @@
 
 #include "pushswap.h"
 
-int	init_stack(s_stack **v)
+int	init_stack(t_ft_stack **v)
 {
-	*v = malloc(sizeof(s_stack));
+	*v = malloc(sizeof(t_ft_stack));
 	if (!v)
 		return (ERROR);
 	(*v)->value = DUMMY;
@@ -23,7 +23,7 @@ int	init_stack(s_stack **v)
 	return (SUCCESS);
 }
 
-int	set_stack(s_stack **a, s_stack **b, int argc, char **argv)
+int	set_stack(t_ft_stack **a, t_ft_stack **b, int argc, char **argv)
 {
 	int		i;
 
@@ -32,18 +32,15 @@ int	set_stack(s_stack **a, s_stack **b, int argc, char **argv)
 	if (init_stack(b) == ERROR)
 		return (ERROR);
 	i = 1;
-	//printf("v_sentinental: %p\n", *a);
 	while (i < argc)
 	{
 		if (add_stack(a, ft_atoi(argv[i])) == ERROR)
 			return (ERROR);
-		//printf("v->now: %d\n", (*a)->next->value);
 		i++;
 	}
 	while ((*a)->prev->value != DUMMY)
 	{
 		(*a) = (*a)->next;
 	}
-	//printf("v->next: %ld\n", (*a)->value);
 	return (SUCCESS);
 }

@@ -6,13 +6,13 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:45:42 by tkano             #+#    #+#             */
-/*   Updated: 2021/12/22 14:14:50 by tkano            ###   ########.fr       */
+/*   Updated: 2021/12/23 12:35:38 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	b_qs4(s_info **info, int start, int end)
+int	b_qs4(t_info **info, int start, int end)
 {
 	if (end - start == 2)
 	{
@@ -39,7 +39,7 @@ int	b_qs4(s_info **info, int start, int end)
 	return (SUCCESS);
 }
 
-int	b_qs3(s_info **info, int start)
+int	b_qs3(t_info **info, int start)
 {
 	if ((*info)->b->next->value == start)
 	{
@@ -62,7 +62,7 @@ int	b_qs3(s_info **info, int start)
 	return (SUCCESS);
 }
 
-int	b_qs2(s_info **info, int start)
+int	b_qs2(t_info **info, int start)
 {
 	if ((*info)->b->next->value == start)
 	{
@@ -89,7 +89,7 @@ int	b_qs2(s_info **info, int start)
 	return (SUCCESS);
 }
 
-int	b_quicksort(s_info **info, int start, int end)
+int	b_quicksort(t_info **info, int start, int end)
 {
 	if (end - start == 3)
 	{

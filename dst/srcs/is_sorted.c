@@ -12,16 +12,16 @@
 
 #include "pushswap.h"
 
-int is_sorted(s_stack *v)
+int	is_sorted(t_ft_stack *v)
 {
-    s_stack *tmp;
+	t_ft_stack	*tmp;
 
-    tmp = v;
-    while (tmp->next->value != DUMMY)
-    {
-        if (tmp->value > tmp->next->value)
-            return (False);
-        tmp = tmp->next;
-    }
-    return (True);
+	tmp = v;
+	while (tmp->next->value != DUMMY)
+	{
+		if (tmp->value > tmp->next->value)
+			return (FALSE);
+		tmp = tmp->next;
+	}
+	return (TRUE);
 }

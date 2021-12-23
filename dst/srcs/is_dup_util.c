@@ -24,7 +24,7 @@ void	int_cpy(int *p, const int *s, size_t n)
 	}
 }
 
-void	replacement_to_index(s_stack *a, int *array)
+void	replacement_to_index(t_ft_stack *a, int *array)
 {
 	int	i;
 

@@ -12,21 +12,19 @@
 
 #include "pushswap.h"
 
-int	stacklen(s_stack *v)
+int	stacklen(t_ft_stack *v)
 {
 	int	len;
 
 	len = 0;
-	//printf("check1\n");
 	while (v->prev->value != DUMMY)
 	{
 		v = v->next;
 	}
-	while(v->value != DUMMY)
+	while (v->value != DUMMY)
 	{
 		len++;
 		v = v->next;
 	}
-	//printf("check2, len: %d\n", len);
 	return (len);
 }

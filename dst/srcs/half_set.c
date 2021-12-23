@@ -6,41 +6,38 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 22:58:57 by tkano             #+#    #+#             */
-/*   Updated: 2021/12/22 14:21:00 by tkano            ###   ########.fr       */
+/*   Updated: 2021/12/23 12:46:38 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int search_min_value(s_stack **v, s_info **info)
+int	search_min_value(t_ft_stack **v, t_info **info)
 {
-	int	j;
-	s_stack *tmp;
+	int			j;
+	t_ft_stack	*tmp;
 
 	tmp = *v;
 	if (tmp->value == DUMMY)
-		return (False);
+		return (FALSE);
 	j = tmp->value;
-	//printf("b_half value: %ld\n", tmp->value);
-	while (j != (*info)->min_value && j - 1 == tmp->next->value && tmp->value != DUMMY && tmp->next->value != DUMMY)
+	while (j != (*info)->min_value && j - 1 == tmp->next->value && \
+		tmp->value != DUMMY && tmp->next->value != DUMMY)
 	{
 		--j;
 		tmp = tmp->next;
-		//printf("b_half value: %ld min_value: %ld j: %d\n", tmp->value, (*info)->min_value, j);
 	}
 	if ((*info)->min_value == j)
-		return (True);
-	return (False);
-
+		return (TRUE);
+	return (FALSE);
 }
 
-int	b_half_set(s_info **info, int *start, int middle, int end)
+int	b_half_set(t_info **info, int *start, int middle, int end)
 {
-	int i;
+	int	i;
 	int	cmd;
 
 	i = end;
-	//printf("b_half_set start: %d, middle %d, end %d\n", *start, middle, end);
 	while (*start < end && middle < i)
 	{
 		if ((*info)->b->value >= middle)
@@ -60,22 +57,18 @@ int	b_half_set(s_info **info, int *start, int middle, int end)
 			--end;
 		}
 	}
-	//printf("b_half_set start: %d\n", *start);
-	//put_stack(*a);
 	return (SUCCESS);
 }
 
-int first_half_set(s_info **info, int median)
+int	first_half_set(t_info **info, int median)
 {
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-	//printf("size: %ld, median: %d\n", (*info)->size, median);
 	while (i < (*info)->size && j < median)
 	{
-		//printf("size: %ld, median: %d\n", (*info)->size, median);
 		if ((*info)->a->value >= median)
 		{
 			if (add_ans_ra(info))
@@ -89,6 +82,5 @@ int first_half_set(s_info **info, int median)
 		}
 		++i;
 	}
-	//printf("halfset\n");
 	return (SUCCESS);
 }

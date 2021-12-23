@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-int pa_or_ra_min(s_info **info, int *start)
+int	pa_or_ra_min(t_info **info, int *start)
 {
 	char	cmd;
 
@@ -28,7 +28,7 @@ int pa_or_ra_min(s_info **info, int *start)
 	return (SUCCESS);
 }
 
-int	sa_min(s_info **info)
+int	sa_min(t_info **info)
 {
 	if ((*info)->a->value == (*info)->min_value + 1 && \
 		(*info)->a->next->value == (*info)->min_value)

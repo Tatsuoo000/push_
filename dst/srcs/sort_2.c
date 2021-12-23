@@ -12,8 +12,10 @@
 
 #include "pushswap.h"
 
-void	sort_2(s_info **info)
+int	sort_2(t_info **info)
 {
 	if ((*info)->a->next->value > (*info)->a->next->next->value)
-		add_ans_sa(info);
+		if (add_ans_sa(info))
+			return (ERROR);
+	return (SUCCESS);
 }

@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void	do_ss(s_stack **a, s_stack **b)
+void	do_ss(t_ft_stack **a, t_ft_stack **b)
 {
 	do_sa(a);
 	do_sa(b);

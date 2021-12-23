@@ -6,18 +6,19 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 14:06:05 by tkano             #+#    #+#             */
-/*   Updated: 2021/12/22 14:20:38 by tkano            ###   ########.fr       */
+/*   Updated: 2021/12/23 12:20:12 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	pa_ra_min(s_info **info, int *start)
+int	pa_ra_min(t_info **info, int *start)
 {
 	int	i;
 
 	i = 0;
-	while ((*info)->a->value != DUMMY && (*info)->a->value != (*info)->min_value)
+	while ((*info)->a->value != DUMMY && \
+		(*info)->a->value != (*info)->min_value)
 	{
 		if (add_ans_pa(info))
 			return (ERROR);
@@ -30,7 +31,7 @@ int	pa_ra_min(s_info **info, int *start)
 	return (SUCCESS);
 }
 
-int	pa_ra_set(s_info **info, int n)
+int	pa_ra_set(t_info **info, int n)
 {
 	int	i;
 
@@ -46,7 +47,7 @@ int	pa_ra_set(s_info **info, int n)
 	return (SUCCESS);
 }
 
-int	command_exec(s_info **info, int cmd)
+int	command_exec(t_info **info, int cmd)
 {
 	if (cmd == PA)
 		return (add_ans_pa(info));
@@ -67,7 +68,7 @@ int	command_exec(s_info **info, int cmd)
 	return (SUCCESS);
 }
 
-int	command_loop(s_info **info, int loop, int cmd)
+int	command_loop(t_info **info, int loop, int cmd)
 {
 	int	i;
 

@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-int	swap_flag(s_stack **a, s_info **info)
+int	swap_flag(t_ft_stack **a, t_info **info)
 {
 	if ((*info)->min_value + 1 == (*a)->value && \
 		(*info)->min_value + 2 == (*a)->next->value && \
@@ -29,32 +29,28 @@ int	swap_flag(s_stack **a, s_info **info)
 	return (0);
 }
 
-int quicksort_second(s_info **info, int *middle, int end)
+int	quicksort_second(t_info **info, int *middle, int end)
 {
-    int i;
+	int	i;
 
-    i = *middle;
-    while (i < end)
-    {
-        if (swap_flag(&((*info)->a), info))
-        {
-			//printf("quick_sort_second:, middle: %d, end %d\n",  *middle, end);
-            if (swap_push(info))
+	i = *middle;
+	while (i < end)
+	{
+		if (swap_flag(&((*info)->a), info))
+		{
+			if (swap_push(info))
 				return (ERROR);
 			*middle += 3;
 			i += 3;
-			//printf("quick_sort_second:, middle: %d, end %d\n",  *middle, end);
 		}
 		else
 		{
-			//printf("quick_sort_second_else:, middle: %d, end %d\n",  *middle, end);
 			if (sa_min(info))
 				return (ERROR);
 			if (pa_or_ra_min(info, middle))
 				return (ERROR);
 			++i;
 		}
-		//printf("quick_sort_second:, middle: %d, end %d\n",  *middle, end);
 	}
 	return (SUCCESS);
 }
